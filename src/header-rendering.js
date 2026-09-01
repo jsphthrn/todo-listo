@@ -1,11 +1,12 @@
 import locale from "./locale/locale.json";
-import { lang } from "./index";
-import { createButtons } from "./helpers/page-helpers";
+import { currentLang, pageProfile } from "./index";
+import { changeLanguage, createButtons } from "./helpers/page-helpers";
 
 export const APP_NAME = "TodoListo!";
 
 export function createHeader () {
 
+    
     const headerLeftContainer = document.createElement("div");
     headerLeftContainer.setAttribute("id", "header-left-container");
     headerLeftContainer.setAttribute("class", "header container");
@@ -40,10 +41,34 @@ export function createNavigation () {
     navigationMenu.setAttribute("id", "nav-bar");
     navigationMenu.setAttribute("class", "header nav-bar");
 
-    createButtons ("header nav-bar button", locale[lang]["nav-bar"], navigationMenu);
+    createButtons ("header nav-bar button", locale[currentLang]["nav-bar"], navigationMenu);
 
     const container = document.getElementById("header-right-container");
     container.appendChild(navigationMenu);
+
+    const langaugeSelector = document.createElement("select");
+
+    langaugeSelector.setAttribute("name", "langauge");
+    langaugeSelector.setAttribute("id", "language-selector");
+
+    for (const language in locale) {
+
+        const newLanguage = document.createElement("option");
+        newLanguage.setAttribute("value", language);
+        newLanguage.textContent = locale[language]["name"];
+        langaugeSelector.appendChild(newLanguage);
+
+    }
+
+    container.appendChild(langaugeSelector);
+
+    langaugeSelector.addEventListener("change", () => {
+        console.log(pageProfile);
+        changeLanguage(langaugeSelector.getAttribute("value"));
+        console.log(pageProfile);
+        console.log(currentLang);
+
+    })
 
 }
 

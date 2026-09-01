@@ -39,7 +39,6 @@ export default {
                 use: ["style-loader", "css-loader"],
             },
 
-            /*
 
             {
 
@@ -47,7 +46,6 @@ export default {
                 use: ["html-loader"],
 
             },
-            */
            
             {
 

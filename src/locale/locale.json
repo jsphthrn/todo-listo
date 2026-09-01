@@ -2,6 +2,7 @@
 
     "en": {
 
+        "name": "English",
         "nav-bar" : {
             
             "home": "Home",
@@ -9,6 +10,20 @@
             "contact": "Contact"
 
         }
+
+    },
+
+    "es": {
+
+        "name": "Español",
+        "nav-bar" : {
+            
+            "home": "Inicio",
+            "about": "Acerca de",
+            "contact": "Contacto"
+
+        }
+
 
     }
 

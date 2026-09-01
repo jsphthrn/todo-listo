@@ -1,5 +1,6 @@
 import locale from "../locale/locale.json";
-import {lang} from "../index"
+import { currentLang, pageProfile} from "../index"
+import { createHeader } from "../header-rendering";
 
 export function createButtons (classes, buttonList, container) {
 
@@ -10,10 +11,18 @@ export function createButtons (classes, buttonList, container) {
         let newButton = document.createElement("button");
         newButton.setAttribute("class", classes);
         newButton.setAttribute("id", containerTag + "-" + element);
-        newButton.textContent = locale[lang][containerTag][element];
+        newButton.textContent = locale[currentLang][containerTag][element];
 
         container.appendChild(newButton);
 
     }
+
+}
+
+export function changeLanguage (newLanguage) {
+
+    pageProfile.setAttribute("lang", newLanguage);
+    currentLang = newLanguage;
+    createHeader();
 
 }

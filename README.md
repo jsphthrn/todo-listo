@@ -1,2 +1,2 @@
 # todo-listo
-A implementation of todo list project on The Odin Project path.
+An implementation of todo list project on The Odin Project path.
