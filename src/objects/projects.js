@@ -1,4 +1,4 @@
-import Checklist from checklists;
+import {Checklist} from "./checklists";
 
 class Project extends Checklist {
 

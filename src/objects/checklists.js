@@ -1,10 +1,10 @@
-class Note {
+export class Checklist {
 
-    constructor (title, description, tags) {
+    constructor (title, description, itemList) {
 
         this._title = title;
         this._description = description;
-        this._tags = tags;
+        this._itemList = itemList;
         this._id = crypto.randomUUID();
 
     }
@@ -31,24 +31,6 @@ class Note {
 
         this._description = newDescription;
 
-    }
-
-    get tags () {
-
-        return this._tags
-
-    }
-
-    set tags (newTags) {
-
-        this._tags = newTags;
-
-    }
-
-    get id () {
-
-        return this._id;
-
-    }
+    } 
 
 }
