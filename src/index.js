@@ -1,6 +1,8 @@
 import locale from "./locale/locale.json";
 import { createButtons } from "./helpers/page-helpers";
 import { createHeader, createNavigation} from "./header-rendering";
+import "./style.css";
+import { deployApp } from "./app-render";
 
 export const pageProfile = document.getElementsByTagName("html")[0];
 
@@ -19,3 +21,5 @@ function changeLanguage (newLanguage) {
 
 
 createHeader();
+
+deployApp();

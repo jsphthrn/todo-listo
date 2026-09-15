@@ -1,13 +1,14 @@
 {
   "dependencies": {
-    "css-loader": "^7.1.5",
-    "html-loader": "^5.1.0",
     "html-webpack-plugin": "^5.6.8",
     "json5": "^2.2.3",
-    "webpack": "^5.110.2",
     "webpack-cli": "^7.2.3"
   },
   "devDependencies": {
+    "css-loader": "^7.1.5",
+    "html-loader": "^5.1.0",
+    "style-loader": "^4.0.0",
+    "webpack": "^5.110.3",
     "webpack-dev-server": "^6.0.0"
   }
 }
