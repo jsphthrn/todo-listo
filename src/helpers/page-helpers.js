@@ -1,8 +1,10 @@
 import locale from "../locale/locale.json";
-import { currentLang, pageProfile} from "../index"
-import { createHeader } from "../header-rendering";
+import { deployLoginPage } from "../ui/login";
+
 
 export function createButtons (classes, buttonList, container) {
+
+    let lang = document.getElementById("root").getAttribute("lang")
 
     const containerTag = container.getAttribute("id");
 
@@ -11,7 +13,7 @@ export function createButtons (classes, buttonList, container) {
         let newButton = document.createElement("button");
         newButton.setAttribute("class", classes);
         newButton.setAttribute("id", containerTag + "-" + element);
-        newButton.textContent = locale[currentLang][containerTag][element];
+        newButton.textContent = locale[lang][containerTag][element];
 
         container.appendChild(newButton);
 
@@ -21,9 +23,12 @@ export function createButtons (classes, buttonList, container) {
 
 export function changeLanguage (newLanguage) {
 
-    pageProfile.setAttribute("lang", newLanguage);
-    currentLang = newLanguage;
-    createHeader();
+    document.getElementById("root").setAttribute("lang", newLanguage);
+
+    let mode = document.getElementById("canvas").getAttribute("mode");
+
+    (mode === "Login") ? deployLoginPage() : deployAppPage();
+
 
 }
 
@@ -61,5 +66,41 @@ export function createMenuSections (container, sectionTitleText, elements) {
     }
 
     container.appendChild(section);
+
+}
+
+export function clearCanvas () {
+
+    const canvas = document.getElementById("canvas");
+    canvas.innerHTML = "";
+
+}
+
+export function createForm (container, formID, classes, fields) {
+
+    let lang = document.getElementById("root").getAttribute("lang");
+
+    for (let i in fields) {
+
+        const fieldLabel = document.createElement("label");
+        fieldLabel.setAttribute("for", fields[i]);
+        fieldLabel.textContent = locale[lang]["forms"][formID][fields[i]];
+        fieldLabel.setAttribute("class", classes + " form-label " + lang);
+
+        const fieldInput = document.createElement("input");
+        fieldInput.setAttribute("name", fields[i]);
+        fieldInput.setAttribute("class", classes + " form-input " + lang);
+        fieldInput.setAttribute("id", formID + "-" + fields[i]);
+        (fields[i] === "password") ? fieldInput.setAttribute("type", "password") : console.log();
+
+        const fieldContainer = document.createElement("div");
+        fieldContainer.setAttribute("class", classes + " field-container");
+
+        fieldContainer.appendChild(fieldLabel);
+        fieldContainer.appendChild(fieldInput);
+
+        container.appendChild(fieldContainer);
+
+    }
 
 }

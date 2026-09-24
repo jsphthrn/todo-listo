@@ -3,11 +3,34 @@
     "en": {
 
         "name": "English",
-        "nav-bar" : {
+        "nav-bar": {
             
             "home": "Home",
             "about": "About",
             "contact": "Contact"
+
+        },
+        "toolkit-tasks": {
+
+            "title": "Tasks",
+            "menu": {
+
+                "add-task": "addTask()"
+
+            }
+
+        },
+
+        "forms": {
+
+            "login-form": {
+
+                "user": "Username: ",
+                "password": "Password: ",
+                "login": "Login",
+                "login-warning": "Invalid credentials. Please check and try again."
+
+            }
 
         }
 
