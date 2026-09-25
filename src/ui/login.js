@@ -1,6 +1,7 @@
 import { clearCanvas, createForm} from "../helpers/page-helpers"
 import { deployHeader } from "./header";
 import { checkLogin } from "../app/login";
+import { deployAppPage } from "./app";
 import locale from "../locale/locale.json"
 
 
@@ -19,6 +20,7 @@ export function deployLoginPage () {
     const appLogoLogin = document.createElement("img");
 
     const loginForm = document.createElement("div");
+    loginForm.setAttribute("id", "login-form-container");
 
     createForm(loginForm, "login-form", "login-form", ["user", "password"]);
 
@@ -36,7 +38,13 @@ export function deployLoginPage () {
     loginPanel.appendChild(appLogoLogin);
     loginPanel.appendChild(loginForm);
     loginPanel.appendChild(loginButton);
+    loginPanel.setAttribute("id", "panel-modal");
 
-    canvas.appendChild(loginPanel);
+    const loginWindow = document.createElement("div");
+    loginWindow.setAttribute("id", "app-login-window");
+
+    loginWindow.appendChild(loginPanel)
+
+    canvas.appendChild(loginWindow);
 
 }

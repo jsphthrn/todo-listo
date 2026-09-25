@@ -45,6 +45,7 @@ export function deployHeader () {
     createButtons(lang + " menu-option", locale[lang]["nav-bar"], navigation);
 
     const rightContainer = document.createElement("div");
+    rightContainer.setAttribute("id", "header-right");
     rightContainer.appendChild(navigation);
     rightContainer.appendChild(languageSelector);
 
