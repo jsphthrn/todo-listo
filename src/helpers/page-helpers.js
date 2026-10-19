@@ -35,6 +35,8 @@ export function changeLanguage (newLanguage) {
 export function createMenuSections (container, sectionTitleText, elements) {
 
     // elements is an object with a key refering to a function.
+    
+    let lang = document.getElementById("root").getAttribute("lang");
 
     let sectionClass = container.getAttribute("class");
 
@@ -54,12 +56,12 @@ export function createMenuSections (container, sectionTitleText, elements) {
         
         const elementLabel = document.createElement("div");
         elementLabel.setAttribute("class", "element-label " + sectionClass);
-        elementLabel.textContent = elements[element]["label"];
+        elementLabel.textContent = locale[lang]["menu-sections"]["Tasks"][element];
 
         elementContainer.appendChild(document.createElement("img"));
         elementContainer.appendChild(elementLabel);
 
-        elementContainer.addEventListener("click", elements[element]["function"]);
+        elementContainer.addEventListener("click", elements[element]);
 
         section.appendChild(elementContainer);
 
@@ -73,6 +75,13 @@ export function clearCanvas () {
 
     const canvas = document.getElementById("canvas");
     canvas.innerHTML = "";
+
+}
+
+export function clearRightSection () {
+
+    const rightSection = document.getElementById("right-section");
+    rightSection.innerHTML = "";
 
 }
 

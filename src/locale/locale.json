@@ -32,6 +32,18 @@
 
             }
 
+        },
+
+        "menu-sections": {
+
+            "Tasks": {
+
+                "new-task": "Add new task",
+                "today": "Today",
+                "this-week": "This week"
+
+            }
+
         }
 
     },

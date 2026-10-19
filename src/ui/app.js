@@ -34,6 +34,11 @@ export function deployAppPage () {
 
     canvas.appendChild(leftPanel);
 
+    const rightSection = document.createElement("div");
+    rightSection.setAttribute("id", "right-section");
+    
+    canvas.appendChild(rightSection);
+
     // sections
 
     const taskSection = document.createElement("div");
@@ -67,9 +72,9 @@ export function deployAppPage () {
 
     createMenuSections(projectSection, "Projects", {
 
-        "new-project": dummyFunction,
-        "my-projects": dummyFunction,
-        "upcoming-deadlines": dummyFunction,
+        "new-project": dummyFunction (),
+        "my-projects": dummyFunction (),
+        "upcoming-deadlines": dummyFunction (),
 
     });
 
@@ -87,5 +92,7 @@ export function deployAppPage () {
     });
 
     leftPanel.appendChild(noteSection);
+
+    
 
 }
